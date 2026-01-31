@@ -61,12 +61,13 @@ public class CommonClass {
         this.wait = wait;
     }
 
-    public void adminLogin() {
+    public void adminLogin() throws InterruptedException {
         WebElement userName = driver.findElement(EP.LoginUsername);
         wait.until(ExpectedConditions.visibilityOf(userName));
         driver.findElement(EP.LoginUsername).sendKeys("TS_Admin");
         driver.findElement(EP.LoginPassword).sendKeys("welcome");
         driver.findElement(EP.LoginSubmit).click();
+        Thread.sleep(20000);
         wait.until(ExpectedConditions.visibilityOf(
                 driver.findElement(EP.Settings)));
     }
