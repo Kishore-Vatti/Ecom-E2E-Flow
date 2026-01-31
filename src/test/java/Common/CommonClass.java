@@ -67,7 +67,7 @@ public class CommonClass {
         driver.findElement(EP.LoginPassword).sendKeys("welcome");
         driver.findElement(EP.LoginSubmit).click();
         wait.until(ExpectedConditions.visibilityOf(
-                driver.findElement(EP.AdminDashboardLabel)));
+                driver.findElement(EP.Settings)));
     }
 
     public void openGeneralSettings() {
