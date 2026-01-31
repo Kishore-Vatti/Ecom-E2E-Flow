@@ -210,7 +210,7 @@ public class OrderFlow extends BaseTest {
      
         // ADMIN FLOW
         common.adminLogin();
-       // common.openGeneralSettings();
+        common.openGeneralSettings();
 
         // 👉 Here call:
         // Admin config methods

@@ -67,7 +67,7 @@ public class CommonClass {
         driver.findElement(EP.LoginUsername).sendKeys("TS_Admin");
         driver.findElement(EP.LoginPassword).sendKeys("welcome");
         driver.findElement(EP.LoginSubmit).click();
-        Thread.sleep(20000);
+        
         wait.until(ExpectedConditions.visibilityOf(
                 driver.findElement(EP.AdminDashboardLabel)));
     }
