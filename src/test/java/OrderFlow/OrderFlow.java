@@ -198,7 +198,7 @@ public class OrderFlow extends BaseTest {
     CommonClass common;
 
     @Test(dataProvider = "TestData")
-    public void adminConfigAndOrderFlow(Map<String, String> data) {
+    public void adminConfigAndOrderFlow(Map<String, String> data) throws InterruptedException {
 
         driver.get("https://qa-acg5.accuconnect.com/admin/");
         common = new CommonClass(driver, wait);

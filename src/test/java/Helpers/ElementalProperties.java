@@ -72,6 +72,9 @@ public class ElementalProperties {
 
     public final By GsAccounting =
             By.xpath("//h3[normalize-space()='Accounting']");
+    
+    public final By GsSaveToast = 
+    		By.xpath("//*[normalize-space()='General configuration saved successfully']");
 
     /* ============== DECIMAL DROPDOWNS ============== */
 

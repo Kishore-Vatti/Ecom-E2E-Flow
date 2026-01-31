@@ -47,6 +47,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import Helpers.ElementalProperties;
 
 public class CommonClass {
@@ -70,7 +71,7 @@ public class CommonClass {
                 driver.findElement(EP.Settings)));
     }
 
-    public void openGeneralSettings() {
+    public void openGeneralSettings() throws InterruptedException {
         driver.findElement(EP.Settings).click();
         wait.until(ExpectedConditions.visibilityOf(
                 driver.findElement(EP.GsLabel)));
@@ -80,8 +81,10 @@ public class CommonClass {
         driver.findElement(EP.GsCollapseAll).click();
         driver.findElement(EP.GsAccounting).click();
         driver.findElement(EP.isShippingTaxable).click();
-        driver.findElement(EP.SaveGeneralSettings);
-        
+        System.out.println("clicked on toggle");
+        driver.findElement(EP.SaveGeneralSettings).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(EP.GsSaveToast)));
+        Thread.sleep(2000);
     }
     
     
