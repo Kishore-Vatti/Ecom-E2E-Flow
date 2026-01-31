@@ -60,8 +60,8 @@ public class ElementalProperties {
 
     public final By Settings =
             By.xpath("//span[normalize-space()='Settings']");
-
-    public final By GsPage =
+    
+    public final By GsLabel =
             By.xpath("//h3[normalize-space()='General Settings']");
 
     public final By GsSearch =
