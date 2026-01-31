@@ -207,7 +207,7 @@ public class OrderFlow extends BaseTest {
         System.out.println("Executing TD: " + td);
 
         
-        Assert.fail("ETF");
+     
         // ADMIN FLOW
         common.adminLogin();
         common.openGeneralSettings();
