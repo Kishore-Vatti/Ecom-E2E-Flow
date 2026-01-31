@@ -69,7 +69,7 @@ public class CommonClass {
         driver.findElement(EP.LoginSubmit).click();
         Thread.sleep(20000);
         wait.until(ExpectedConditions.visibilityOf(
-                driver.findElement(EP.Settings)));
+                driver.findElement(EP.AdminDashboardLabel)));
     }
 
     public void openGeneralSettings() throws InterruptedException {
