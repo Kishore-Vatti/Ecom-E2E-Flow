@@ -59,7 +59,7 @@ public class ElementalProperties {
     /* ============== GENERAL SETTINGS ============== */
 
     public final By Settings =
-            By.xpath("//span[normalize-space()='Settings']");
+            By.xpath("//a[@href='/admin/settings']");
     
     public final By GsLabel =
             By.xpath("//h3[normalize-space()='General Settings']");
