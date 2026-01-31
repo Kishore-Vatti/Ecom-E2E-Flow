@@ -72,6 +72,14 @@ public class CommonClass {
 
     public void openGeneralSettings() {
         driver.findElement(EP.Settings).click();
+        wait.until(ExpectedConditions.visibilityOf(
+                driver.findElement(EP.GsCollapseAll)));
+        
+        driver.findElement(EP.GsCollapseAll).click();
+        driver.findElement(EP.GsAccounting).click();
+        driver.findElement(EP.isShippingTaxable).click();
+        driver.findElement(EP.SaveGeneralSettings);
+        
     }
     
     
