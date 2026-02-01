@@ -42,7 +42,17 @@
 
 
 package Common;
+import java.io.File;
+import java.io.IOException;
+//import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,6 +70,23 @@ public class CommonClass {
         this.driver = driver;
         this.wait = wait;
     }
+    public static String takeScreenshot(WebDriver driver, String testName) {
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = "screenshots/" + testName + "_" + timeStamp + ".png";
+
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File dest = new File(filePath);
+
+        try {
+            FileUtils.copyFile(src, dest); // ✅ correct
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
+
+    
 
     public void adminLogin() throws InterruptedException {
         WebElement userName = driver.findElement(EP.LoginUsername);
@@ -67,9 +94,29 @@ public class CommonClass {
         driver.findElement(EP.LoginUsername).sendKeys("TS_Admin");
         driver.findElement(EP.LoginPassword).sendKeys("welcome");
         driver.findElement(EP.LoginSubmit).click();
-        
-        wait.until(ExpectedConditions.visibilityOf(
+//        ((JavascriptExecutor) driver)
+//        .executeScript("document.body.style.zoom='90%'");
+
+//        Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(
                 driver.findElement(EP.AdminDashboardLabel)));
+        
+        // ✅ Wait for page load
+//        wait.until(d ->
+//            ((JavascriptExecutor)d)
+//                .executeScript("return document.readyState")
+//                .equals("complete")
+//        );
+
+        // ✅ Wait for spinner / overlay gone
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+//            By.cssSelector(".spinner, .loading, .overlay")
+//        ));
+
+        // ✅ Ensure sidebar visible
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(
+//        		EP.AdminDashboardLabel
+//        ));
     }
 
     public void openGeneralSettings() throws InterruptedException {

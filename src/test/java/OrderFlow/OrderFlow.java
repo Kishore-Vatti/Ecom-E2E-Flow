@@ -186,7 +186,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -207,10 +206,12 @@ public class OrderFlow extends BaseTest {
         System.out.println("Executing TD: " + td);
 
         
-     
+     try {
         // ADMIN FLOW
+    	 
         common.adminLogin();
         common.openGeneralSettings();
+        
 
         // 👉 Here call:
         // Admin config methods
@@ -218,7 +219,15 @@ public class OrderFlow extends BaseTest {
         // Order placing (later via user role)
     }
 
+    catch (Exception e) {
+    	
+    	    CommonClass.takeScreenshot(driver, "FAIL_admin_flow");
+    	    throw e; // 🔥 VERY IMPORTANT
+    	}
+    	
     
+    	
+    }
 	@DataProvider(name = "TestData")
 	public Object[][] orderData() {
 
