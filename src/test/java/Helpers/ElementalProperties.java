@@ -72,6 +72,15 @@ public class ElementalProperties {
 
     public final By GsAccounting =
             By.xpath("//h3[normalize-space()='Accounting']");
+    public final By Decimal2 = 
+    		By.xpath("//*[normalize-space()='2']");
+    public final By Decimal3 = 
+    		By.xpath("//*[normalize-space()='3']");
+    public final By Decimal4 = 
+    		By.xpath("//*[normalize-space()='4']");
+    
+    
+    
     
     public final By GsSaveToast = 
     		By.xpath("//*[normalize-space()='General configuration saved successfully']");
@@ -79,19 +88,13 @@ public class ElementalProperties {
     /* ============== DECIMAL DROPDOWNS ============== */
 
     public final By CurrencyDecimalDD =
-            By.xpath("//label[normalize-space()='Currency Decimals']" +
-                     "/ancestor::div[contains(@class,'flex-col')][1]" +
-                     "//div[contains(@class,'control')]");
+            By.xpath("//label[normalize-space()='Currency Decimals']   /ancestor::div[contains(@class,'flex-col')][1]   //div[contains(@class,'indicatorContainer')]");
 
     public final By WeightDecimalDD =
-            By.xpath("//label[normalize-space()='Weight Decimals']" +
-                     "/ancestor::div[contains(@class,'flex-col')][1]" +
-                     "//div[contains(@class,'control')]");
+            By.xpath("//label[normalize-space()='Weight Decimals']   /ancestor::div[contains(@class,'flex-col')][1]   //div[contains(@class,'indicatorContainer')]");
 
     public final By OrderAmountDecimalDD =
-            By.xpath("//label[normalize-space()='Order Amount Decimals']" +
-                     "/ancestor::div[contains(@class,'flex-col')][1]" +
-                     "//div[contains(@class,'control')]");
+            By.xpath("//label[normalize-space()='Order Amount Decimals']   /ancestor::div[contains(@class,'flex-col')][1]   //div[contains(@class,'indicatorContainer')]");
 
     /* ============== TOGGLES ============== */
 
@@ -104,6 +107,9 @@ public class ElementalProperties {
             By.xpath("//label[normalize-space()='Postage is Taxable']" +
                      "/ancestor::div[contains(@class,'items-center')][1]" +
                      "//input[@type='checkbox']");
+    
+    public final By ShowAdvanced =
+    		By.xpath("//button[normalize-space()='+ Show Advanced']");
 
     public final By isCalculateTax =
             By.xpath("//label[normalize-space()='Enable Calculate Tax']" +
